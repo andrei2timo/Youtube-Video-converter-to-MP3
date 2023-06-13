@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .error-message {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oops! Something went wrong.</h1>
+        <div class="error-message">
+            <p>We're sorry, but an error occurred during the process.</p>
+            <p>Please try again later or contact support for assistance.</p>
+        </div>
+        <p>Error Message: {{ error_message }}</p>
+        <p>Traceback Message: {{ traceback_message }}</p>
+        <a href="/" class="button">Back to Home</a>
+    </div>
+</body>
+</html>

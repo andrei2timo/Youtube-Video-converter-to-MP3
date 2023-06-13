@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert to MP3</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Convert to MP3</h1>
+    <p>Converting the media file...</p>
+    <p>Input Path: {{ session['destination'] }}/{{ session['video_title'] }}.mp3</p>
+    <p>Output Path: {{ session['destination'] }}/{{ session['video_title'] }}_converted.mp3</p>
+    <p>File converted successfully!</p>
+    <a href="{{ url_for('saving') }}">Go to saving page</a>
+</body>
+</html>

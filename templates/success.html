@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Success</title>
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #000;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .success-message {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .folder-info {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversion Success</h1>
+        <div class="success-message">
+            <p>The video has been successfully converted to MP3 and saved.</p>
+        </div>
+        <div class="folder-info">
+            <p>The file was saved in the following destination:</p>
+            <p>{{ destination }}</p>
+        </div>
+        <a href="/" class="button">Back to Home</a>
+    </div>
+</body>
+</html>

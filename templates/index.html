@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube to MP3</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        button {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Youtube to MP3</h1>
+        <form method="POST">
+            <input type="text" placeholder="Enter Youtube URL" name="youtube_url" />
+            <label for="destination_folder">Destination Folder:</label>
+            <input type="text" id="destination_folder" name="destination_folder" placeholder="Enter Destination Folder" required/>
+            <button type="submit">Convert</button>
+        </form>
+    </div>
+</body>
+</html>
