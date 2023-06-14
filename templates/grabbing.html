@@ -4,28 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Grabbing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Youtube to MP3</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
         }
 
         .container {
             text-align: center;
             border: 1px solid #ccc;
-            padding: 20px;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
-        h1, h2, p {
+        .container h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .container h1 i {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        h2, p {
             margin: 0;
+            color: #333;
         }
 
         img {
             border: 1px solid #ccc;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            max-width: 100%;
+            width: 300px;
         }
 
         .progress-bar {
@@ -34,7 +57,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 3px;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .progress {
@@ -43,28 +66,67 @@
             background-color: #4CAF50;
             border-radius: 5px;
         }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: purple;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #6c2e9c;
+        }
+
+        .title1 {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            margin-top: -150px;
+            align-items: center;
+        }
+
+        .title1 i {
+            font-size: 48px;
+            color: red;
+            margin-right: 10px;
+            margin-left: 140px;
+        }
+
+        .title1 h1 {
+            margin-left: 0px; /* Added this line to add some left margin */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Video Grabbing</h1>
-        {% if grabbing_failed %}
-            <p>Failed to grab video info</p>
-            <p><a href="{{ url_for('index') }}">Go back</a></p>
-        {% else %}
-            <h2>{{ video_title }}</h2>
-            <img src="{{ video_thumbnail }}" alt="Video Thumbnail">
-            <p>Views: {{ video_views }}</p>
-            <p>Likes: {{ video_likes }}</p>
-            {% if converting %}
-                <p>Converting the video to MP3...</p>
-                <div class="progress-bar">
-                    <div class="progress" style="width: {{ progress }}%"></div>
-                </div>
+        <div class="title1">
+            <i class="fa fa-youtube-play"></i>
+            <h1>Youtube to MP3</h1>
+        </div>
+        <div>
+            {% if grabbing_failed %}
+                <p>Failed to grab video info</p>
+                <p><a href="{{ url_for('index') }}">Go back</a></p>
             {% else %}
-                <p><a href="{{ url_for('download') }}">Download MP3</a></p>
+                <h2>{{ video_title }}</h2>
+                <img src="{{ video_thumbnail }}" alt="Video Thumbnail">
+                <p>Views: {{ video_views }}</p>
+                <p>Likes: {{ video_likes }}</p>
+                {% if converting %}
+                    <p>Converting the video to MP3...</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: {{ progress }}%"></div>
+                    </div>
+                {% else %}
+                    <p><a href="{{ url_for('download') }}">Download MP3</a></p>
+                {% endif %}
             {% endif %}
-        {% endif %}
+        </div>
     </div>
 </body>
 </html>

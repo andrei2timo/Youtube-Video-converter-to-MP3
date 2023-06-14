@@ -5,6 +5,7 @@ import traceback
 import requests
 from bs4 import BeautifulSoup
 from moviepy.editor import VideoFileClip, AudioFileClip
+import shutil
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "12345"  # Set your secret key
@@ -51,7 +52,7 @@ def grabbing():
         return render_template("grabbing.html", grabbing_failed=True)
 
 
-@app.route("/convert", methods=["GET", "POST"])
+@app.route("/convert")
 def convert():
     try:
         url = YouTube(session["link"])
@@ -63,8 +64,8 @@ def convert():
         download_path = os.path.join(session["destination"], filename)
         stream.download(output_path=session["destination"], filename=filename)
 
-        # Proceed to the saving route
-        return redirect(url_for("saving"))
+        # Render the convert.html template with relevant information
+        return render_template("convert.html", destination=session["destination"], video_title=session["video_title"])
     except Exception as e:
         flash(f"Failed to convert the media file: {str(e)}")
         traceback_message = traceback.format_exc()  # Capture traceback information
@@ -84,14 +85,15 @@ def saving():
             file_number += 1
 
         destination_path = os.path.join(destination_folder, destination_file)
-        os.rename(source_path, destination_path)
+        
+        # Move the file to the destination folder
+        shutil.move(source_path, destination_path)
 
         return redirect(url_for("success"))
     except Exception as e:
         flash(f"Failed to save the processed mp3 file: {str(e)}")
         traceback_message = traceback.format_exc()  # Capture traceback information
         return redirect(url_for("error", error_message=str(e), traceback_message=traceback_message))
-
 
 @app.route("/download")
 def download():

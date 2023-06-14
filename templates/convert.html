@@ -3,13 +3,43 @@
 <head>
     <title>Convert to MP3</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .box {
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: purple;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Convert to MP3</h1>
-    <p>Converting the media file...</p>
-    <p>Input Path: {{ session['destination'] }}/{{ session['video_title'] }}.mp3</p>
-    <p>Output Path: {{ session['destination'] }}/{{ session['video_title'] }}_converted.mp3</p>
-    <p>File converted successfully!</p>
-    <a href="{{ url_for('saving') }}">Go to saving page</a>
+    <div class="container">
+        <div class="box">
+            <h1>Convert to MP3</h1>
+            <p>Converting the media file...</p>
+            <p>Input Path: {{ session['destination'] }}/{{ session['video_title'] }}.mp3</p>
+            <p>Output Path: {{ session['destination'] }}/{{ session['video_title'] }}_converted.mp3</p>
+            <p>File converted successfully!</p>
+            <a class="button" href="{{ url_for('saving') }}">Download</a>
+        </div>
+    </div>
 </body>
 </html>

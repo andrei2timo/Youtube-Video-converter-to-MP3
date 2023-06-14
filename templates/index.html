@@ -4,24 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Youtube to MP3</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            margin-top: -150px;
+            align-items: center;
+        }
+
+        .title i {
+            font-size: 48px;
+            color: red;
+            margin-right: 10px;
         }
 
         .container {
-            max-width: 400px;
+            max-width: 500px;
             border: 1px solid #ccc;
-            padding: 20px;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         h1 {
             text-align: center;
+            margin-bottom: 30px;
+            color: #333;
         }
 
         form {
@@ -32,13 +55,29 @@
         input[type="text"],
         button {
             margin-bottom: 10px;
-            padding: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: purple;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6c2e9c;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="title">
+        <i class="fa fa-youtube-play"></i>
         <h1>Youtube to MP3</h1>
+    </div>
+    <div class="container">
         <form method="POST">
             <input type="text" placeholder="Enter Youtube URL" name="youtube_url" />
             <label for="destination_folder">Destination Folder:</label>
