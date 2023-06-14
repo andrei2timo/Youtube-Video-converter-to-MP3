@@ -8,7 +8,7 @@ from moviepy.editor import VideoFileClip, AudioFileClip
 import shutil
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "12345"  # Set your secret key
+app.config["SECRET_KEY"] = "YOUR_SECRET_KEY"  # Set your secret key
 
 
 @app.route("/", methods=["GET", "POST"])
